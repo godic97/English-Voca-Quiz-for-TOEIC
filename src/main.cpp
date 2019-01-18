@@ -11,6 +11,7 @@
 #include <string>
 #include <Vector>
 #include <random>
+#include <cstdlib>
 
 using namespace std;
 
@@ -45,7 +46,7 @@ int main(){
 	cout << "/wordset/day" + to_string(week) + ".txt";
 
 	ifstream inp;
-	inp.open("wordset/day" + to_string(week) + ".txt", ios::in);
+	inp.open("./wordset/day" + to_string(week) + ".txt", ios::in);
 
 	WordSet* ws = new WordSet();
 	string eng;
@@ -59,8 +60,10 @@ int main(){
 
 	for(int i = 0; i < 20; i++){
 		pair<string, string> _pair = ws->getWord(i);
-
-		cout << _pair.first << " " << _pair.second  << endl;
+		if(rand() % 2== 1)
+			cout << _pair.first << endl;
+		else
+			 cout << _pair.second << endl;
 	}
 	return 0;
 }
