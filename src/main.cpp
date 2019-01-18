@@ -43,7 +43,7 @@ int main(){
 	cout << "--------------------------------------------------------\n";
 	cout << "Select Week: ";
 	cin >> week;
-	cout << "/wordset/day" + to_string(week) + ".txt";
+	cout << "/wordset/day" + to_string(week) + ".txt" << endl;
 
 	ifstream inp;
 	inp.open("./wordset/day" + to_string(week) + ".txt", ios::in);
@@ -51,14 +51,14 @@ int main(){
 	WordSet* ws = new WordSet();
 	string eng;
 	string kor;
-	for(int i = 0; i < 20; i++){
+	for(int i = 0; i < 40; i++){
 		getline(inp, eng);
 		getline(inp, kor);
 
 		ws->insertWords(eng, kor, i);
 	}
 
-	for(int i = 0; i < 20; i++){
+	for(int i = 0; i < 40; i++){
 		pair<string, string> _pair = ws->getWord(i);
 		if(rand() % 2== 1)
 			cout << _pair.first << endl;
